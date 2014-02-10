@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "ScholarshipInsert";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+    
+}
+
+<nav style="margin-left: 120px; margin-top: 100px;">
+    <div id="menu_container">
+        <ul class="sf-menu" id="nav">
+
+            <li><a href="/Admin/AdminUpdate">Home</a></li>
+             <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+
+
+        </ul>
+    </div>
+</nav>
+&nbsp&nbsp
+<div style="margin-left: 120px; margin-top: 120px; margin-right: 255px;">
+    <h2>Program Insert</h2>
+
+    @*@using (Html.BeginForm("ScholarshipInsert", "Admin", FormMethod.Post, new { enctype ="multipart-form-data"}))
+{
+   
+
+    <fieldset>
+       <legend>Scholarship</legend>
+
+        <div>
+            <label >Leval</label>
+        </div>
+        <div>
+            <input  id="Sleval" name="leval" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Amount</label>
+        </div>
+        <div >
+            <input  id="SAmount" name="Amount" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Detail</label>
+        </div>
+        <div >
+            <input  id="sDetail" name="Detail" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Institute</label>
+        </div>
+        <div>
+            <input id="sInstitute" name="Institute" type="text" value="" />
+           
+        </div>
+
+         <div >
+            <label >Upload File</label>
+        </div>
+        <div>
+            <input type="file" name="image" />
+           
+        </div>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}*@
+    @* @using (Html.BeginForm("ScholarshipInsert", "Admin", FormMethod.Post, new { enctype = "multitype/form-data" }))
+    {
+        <input type="text" placeholder="Level" name="leval">
+        <input type="text" placeholder="Level" name="Amount">
+        <input type="text" placeholder="Level" name="Detail">
+        <input type="text" placeholder="Level" name="Institute">
+        <input type="file" name ="file" id="file" style="width:100%">
+        <input type="submit" value="Add" class="submit"> 
+    }*@
+
+    <form action="/Admin/saveaaa" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Level" name="leval">
+        <input type="text" placeholder="Amount" name="Amount">
+        <input type="text" placeholder="Detail" name="Detail">
+        <input type="text" placeholder="Institute" name="Institute">
+        Upload Image:
+        <input type="file" name="image" />
+
+
+
+        <input type="submit" value="upload" />
+    </form>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Schlindex")
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+﻿
+@model MvcApplication1.Models.Program
+
+@{
+    //ViewBag.Title = "ProgramUpdate";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+<nav style="margin-left:120px;margin-top:100px;">
+        <div   id="menu_container">
+          <ul class="sf-menu" id="nav">
+              <li><a href="/Admin/AdminUpdate">Home</a></li>
+              <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+            
+            
+          </ul>
+        </div>
+      </nav>
+&nbsp&nbsp
+<div style="margin-left:120px;margin-top:120px;margin-right:250px;">
+
+<h2>Edit</h2>
+@using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>Student</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            <label>Program</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.proName)
+           
+        </div>
+
+        <div class="editor-label">
+            <label>Department</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.depName)
+           
+        </div>
+
+        <div class="editor-label">
+            <label>University</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.uniName)
+           
+        </div>
+         <div class="editor-label">
+            <label>Apply Date</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.applyDate)
+           
+        </div>
+        <div class="editor-field">
+             <label>Type</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.type1)
+           
+        </div>
+        <div class="editor-field">
+             <label>Apply Way</label>
+        </div>
+
+        <div class="editor-field">
+             
+            @Html.TextBoxFor(model => model.ApplyWay,"", new {style="width:500px; height:220px;" })
+           
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+    </div>
+
+
+

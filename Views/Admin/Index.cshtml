@@ -1,0 +1,78 @@
+﻿@model List<MvcApplication1.Models.Program>
+@{
+    ViewBag.Title = "Index";
+   Layout= "~/Views/Shared/admin_share.cshtml";
+}
+<div   id="menu_container">
+  <nav style="margin-left:10px;margin-top:100px">
+        
+          <ul class="sf-menu" id="nav">
+              <li><a href="/Admin/AdminUpdate">Home</a></li>
+              <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+            
+            
+          </ul>
+        
+      </nav>
+</div>
+&nbsp&nbsp
+<h2 style="font-size:xx-large;text-decoration-color:black;margin-top:120px;margin-left:200px"> Programs Management</h2>
+<div style="margin-left:200px;margin-top:10px">
+
+
+
+<p>
+    <a href="~/Admin/ProgramInsert">Create New</a>
+
+  @*  @Html.ActionLink("Create New", "Create")*@
+</p>
+<table>
+    <tr>
+        <th>
+           Program
+        </th>
+        <th>
+            Department
+        </th>
+        <th>
+            University
+        </th>
+        <th> ApplyDate</th>
+        <th> Type</th>
+         <th>Applyway</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @item.proName
+        </td>
+        <td>
+            @item.depName
+        </td>
+        <td>
+           @item.uniName
+        </td>
+        <td>
+           @item.applyDate
+        </td>
+         <td>
+           @item.type1
+        </td>
+         <td colspan="6">
+           @item.ApplyWay
+        </td>
+        <td>
+             @*<a href="~/Student/Edit/@item.Id">Edit</a>*@ 
+
+            @Html.ActionLink("Edit", "ProgramUpdate", new { id=item.Id }) |
+           @* @Html.ActionLink("Details", "", new { id=item.Id })*@ 
+            @Html.ActionLink("Delete", "ProgramDelete", new { id=item.Id })
+        </td>
+    </tr>
+    
+}
+
+</table>
+    </div>

@@ -1,0 +1,82 @@
+﻿@{
+    //ViewBag.Title = "Program";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+        <nav style="margin-left:120px;margin-top:100px;">
+        <div   id="menu_container">
+          <ul class="sf-menu" id="nav">
+              <li><a href="/Admin/AdminUpdate">Home</a></li>
+              <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+            
+            
+          </ul>
+        </div>
+      </nav>
+&nbsp&nbsp
+<div style="margin-left:120px;margin-top:120px;margin-right:255px;">
+<h2>Program Insert</h2>
+
+@using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>Program</legend>
+
+        <div>
+            <label >Program</label>
+        </div>
+        <div>
+            <input  id="proName" name="proName" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Department</label>
+        </div>
+        <div >
+            <input  id="depName" name="depName" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >University</label>
+        </div>
+        <div >
+            <input  id="uniName" name="uniName" type="text" value="" />
+            
+        </div>
+
+        <div >
+            <label >Apply Date</label>
+        </div>
+        <div>
+            <input id="applyDate" name="applyDate" type="text" value="" />
+           
+        </div>
+
+         <div >
+            <label >Type</label>
+        </div>
+        <div>
+            <input id="type1" name="type1" type="text" value="" />
+           
+        </div>
+        <div>
+            <p>ApplyWay</p>
+            &nbsp&nbsp
+             <textarea class="contact textarea" rows="5" cols="50" name="ApplyWay" required></textarea>
+        </div>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}
+
+              <div>
+                   @Html.ActionLink("Back to List", "Index")
+              </div>
+             
+    </div>

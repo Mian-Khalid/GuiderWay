@@ -1,0 +1,89 @@
+﻿
+
+@model MvcApplication1.Models.Scholarship
+
+@{
+    //ViewBag.Title = "ProgramUpdate";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+<nav style="margin-left:120px;margin-top:100px;">
+        <div   id="menu_container">
+          <ul class="sf-menu" id="nav">
+              <li><a href="/Admin/AdminUpdate">Home</a></li>
+            <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+              
+            
+            
+          </ul>
+        </div>
+      </nav>
+&nbsp&nbsp
+<div style="margin-left:120px;margin-top:120px;margin-right:250px;">
+
+<h2>Edit</h2>
+@using (Html.BeginForm("schlSave", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+
+   
+    @*<form action="/Admin/schlSave" method="post" enctype="multipart/form-data">*@
+    <fieldset>
+        <legend>Student</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            <label>Level</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.leval)
+           
+        </div>
+
+        <div class="editor-label">
+            <label>Amount</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Amount)
+           
+        </div>
+
+        <div class="editor-label">
+            <label>Detail</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Detail)
+           
+        </div>
+         <div class="editor-label">
+            <label>Institute</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Institute)
+           
+        </div>
+       <div class="editor-label">
+            <label>Link</label>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.DetailLink)
+           Change File:
+        <input type="file" name="image" />
+           
+        </div>
+        <p>
+            <input type="submit" value="upload" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "schlindex")
+</div>
+    </div>
+
+
+
+

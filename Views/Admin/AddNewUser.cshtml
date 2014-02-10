@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "AddNewUser";
+   Layout= "~/Views/Shared/admin_share.cshtml";
+    
+}
+
+<nav style="margin-left: 120px;margin-top:245px">
+    <div id="menu_container">
+        <ul class="sf-menu" id="nav">
+            <li><a href="/Admin/AdminUpdate">Home</a></li>
+            <li><a href="/Admin/AddNewUser">Add New User</a></li>
+            <li><a href="/Admin/Logout">Logout</a></li>
+
+
+        </ul>
+    </div>
+</nav>
+
+<script type="text/javascript">
+
+    function chk() {
+
+        var userName = $('#userName').val();
+
+
+
+        //alert('User Name ='+ userName);
+
+        $.getJSON("/Admin/CheckUserName?userName=" + userName, function (data) {
+
+            if (data) {
+                $('#result').text("User already exists in database");
+                $('#userName').val("");
+
+                return false;
+            }
+            else {
+                $('#result').text("User Name is available");
+                return true;;
+
+            }
+        });
+    }
+
+
+    //////////////////////////////////////////////cheking ends here//////////////////
+
+
+
+
+
+
+    function validateForm() {
+        //if (chk() == true) {
+        for (i = 0; i < ((document.form2.elements.length) - 1) ; i++) {
+            if (document.form2.elements[i].value == null || document.form2.elements[i].value == "") {
+                alert("All locations must be filled out");
+                return false;
+            }
+        }
+
+        if (document.form2.password1.value != document.form2.password2.value) {
+            alert("Password Mis-Matched");
+            return false;
+        }
+
+        return true;
+    }
+    //}
+
+    function extractForm() {
+        if (validateForm()) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /////////////////checking/////////////////////
+
+
+
+</script>
+<link href="~/Content/style2.css" rel="stylesheet" />
+&nbsp&nbsp
+<div style="margin-top:300px;margin-left:790px">
+@*<table border="0" align="center">
+
+    <tr>
+        <td align="right">
+            <a href="~/Home/index">
+                <img width="60px" height="34px" src="~/images/home.png"></a>*
+        </td>
+    </tr>
+</table>*@
+
+<table border="0" >
+    <tr>
+        <td >
+
+            <form action="~/Admin/AddNewUserData" name="form2" method="post">
+
+                <div id="checking" style="visibility: hidden">Checking...</div>
+
+                  <input type="text" name="Name" required placeholder=" Name" title="Name" />
+                <input type="text" name="userName" id="userName" required placeholder=" User Name" title="Full Name" onchange="chk();" />@*<input type="button" id="b1" value="Check" onclick="return chk();" />*@<div id="result"></div>
+                  <input type="text" name="City" id="city" required placeholder=" city" title="Full Name" onchange="chk();" />@*<input type="button" id="b1" value="Check" onclick="return chk();" />*@<div id="result123"></div>
+                <input type="email" name="Email" required placeholder=" Email ID" title="Email ID" />
+                <input type="password" name="Password" required placeholder=" Password" title="Password" />
+                <input type="password" name="password2" required placeholder=" Password Again" title="Password" />
+                 <input type="text" name="Address" required  placeholder=" Address" title="Address" />
+               
+               
+
+                <p style="color: #A0A0A0">
+                    City:
+                    <select name="City">
+                        <option value="Lahore">Lahore</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                    </select>
+                </p>
+
+
+   
+
+                <input type="submit" value="Add New Admin" onclick="return extractForm();" />
+
+            </form>
+        </td>
+    </tr>
+</table>
+    </div>
+
+
